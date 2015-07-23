@@ -113,7 +113,7 @@ class PM_Facebook_Scrape_Admin_Options {
     $options = get_option( self::OPTION_NAME );
   }
   /**
-   * Outputs description-text for Include Posts Section
+   * Outputs the checkbox input tags for Include Posts Section
    * 
    * @since     1.0.0
    *

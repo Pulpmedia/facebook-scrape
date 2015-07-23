@@ -1,6 +1,6 @@
 <?php
 /**
- * A WordPress Facebook Scrape Plugin.
+ * Facebook Scrape - A WordPress Plugin.
  *
  * Automatically update the Facebook graph information when a post, page or a custom post type is updated. 
  *
@@ -26,7 +26,7 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+  die;
 }
 
 require_once( plugin_dir_path( __FILE__ ) . 'class-facebook-scrape.php' );

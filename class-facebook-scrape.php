@@ -194,7 +194,7 @@ class PM_Facebook_Scrape {
       'stream'      => false,
       'filename'    => null,
       'body'        => array(
-        'id'  =>  $post_permalink ,
+        'id'  =>  $post_permalink,
         'scrape' => 'true'
       )
     );  
@@ -203,9 +203,7 @@ class PM_Facebook_Scrape {
     
     // TODO better check successful scrape
     // use headers
-    echo '<pre>'; print_r($response); echo '</pre>';
     if( wp_remote_retrieve_response_code( $response ) != 200) {
-      wp_die('sdf');
       return false;
     } 
     
