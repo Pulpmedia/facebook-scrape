@@ -21,31 +21,31 @@
  */
 class PM_Facebook_Scrape_Admin_Metabox {
 
-	/**
-	 * Unique action name for the nonce
-	 *
-	 * @since    1.0.0
-	 *
-	 * @var      string
-	 */
+  /**
+   * Unique action name for the nonce
+   *
+   * @since    1.0.0
+   *
+   * @var      string
+   */
   const NONCE_ACTION = 'pm_fb_scrape_metabox_save';
 
-	/**
-	 * Unique name for the nonce
-	 *
-	 * @since    1.0.0
-	 *
-	 * @var      string
-	 */
+  /**
+   * Unique name for the nonce
+   *
+   * @since    1.0.0
+   *
+   * @var      string
+   */
   const NONCE_NAME = 'pm_fb_scrape_metabox_nonce';
 
-	/**
-	 * Holds an array with all included post types
-	 *
-	 * @since    1.0.0
-	 *
-	 * @var      array
-	 */
+  /**
+   * Holds an array with all included post types
+   *
+   * @since    1.0.0
+   *
+   * @var      array
+   */
   private $post_types = array(); 
 
   /**
@@ -54,14 +54,14 @@ class PM_Facebook_Scrape_Admin_Metabox {
   public function __construct() {
     $this->post_types = PM_Facebook_Scrape_Admin_Options::get_post_types();
     add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ));
-		add_action( 'save_post', array( $this, 'save' ));
+    add_action( 'save_post', array( $this, 'save' ));
   }
 
-	/**
-	 * Adds the metabox container.
-	 *
-	 * @since    1.0.0
-	 */
+  /**
+   * Adds the metabox container.
+   *
+   * @since    1.0.0
+   */
   public function add_meta_box( $post_type ) {
     
     $post_type_object = get_post_type_object( $post_type ); 
@@ -78,11 +78,11 @@ class PM_Facebook_Scrape_Admin_Metabox {
     }
   }
 
-	/**
+  /**
    * Save the meta when the post is saved.
-	 *
-	 * @since    1.0.0
-	 */
+   *
+   * @since    1.0.0
+   */
   public function save( $post_ID ) {
   
     // Check if our nonce is set.
@@ -106,18 +106,18 @@ class PM_Facebook_Scrape_Admin_Metabox {
     
     // Update the post meta
     // set a flag if this post should be excluded
-  	if ( isset( $_REQUEST[PM_Facebook_Scrape::META_KEY_EXCLUDED] )) {  
+    if ( isset( $_REQUEST[PM_Facebook_Scrape::META_KEY_EXCLUDED] )) {  
       update_post_meta( $post_ID, PM_Facebook_Scrape::META_KEY_EXCLUDED, '1' );
-  	} else {
+    } else {
       delete_post_meta( $post_ID, PM_Facebook_Scrape::META_KEY_EXCLUDED );
-  	}
+    }
   }
 
-	/**
+  /**
    * Render the metabox content
-	 *
-	 * @since    1.0.0
-	 */
+   *
+   * @since    1.0.0
+   */
   public function render_meta_box_content( $post ) {
               
     $is_excluded = get_post_meta( $post->ID, PM_Facebook_Scrape::META_KEY_EXCLUDED, true );

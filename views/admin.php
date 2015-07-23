@@ -12,9 +12,9 @@
 ?>
 
 <div class="wrap">
-	<?php screen_icon(); ?>
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-	<p><?php _e( 'The option page for Facebook Scrape plugin.', PM_Facebook_Scrape::SLUG );?></p>
+  <?php screen_icon(); ?>
+  <h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+  <p><?php _e( 'The option page for Facebook Scrape plugin.', PM_Facebook_Scrape::SLUG );?></p>
   <form action="options.php" method="post">
   <?php settings_fields( PM_Facebook_Scrape_Admin_Options::OPTION_NAME ); ?>
   <?php do_settings_sections( PM_Facebook_Scrape::SLUG ); ?>
